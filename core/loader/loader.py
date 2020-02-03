@@ -1,2 +1,8 @@
+import pandas as pd
+
+
 def load_file():
-    print("Loading file")
+    try:
+        return pd.read_csv("./core/loader/data.csv")
+    except FileNotFoundError as e:
+        print(e)

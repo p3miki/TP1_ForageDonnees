@@ -1,14 +1,16 @@
 from .loader import loader
 from .view import viewer
+from .parser import parser
 
 
-def hello_world():
-    print("Hello World!")
+class Main:
 
+    def __init__(self):
+        self.hello_world = "hello_world"
+        self.file = ""
+        self.start()
 
-def load_file():
-    loader.load_file()
-
-
-def update_view():
-    viewer.update_view()
+    def start(self):
+        print(self.hello_world)
+        self.file = loader.load_file()
+        parser.parse_data(self.file)
