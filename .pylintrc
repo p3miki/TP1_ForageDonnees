@@ -140,8 +140,7 @@ disable=print-statement,
         exception-escape,
         comprehension-escape,
         missing-module-docstring,
-        missing-function-docstring,
-        missing-class-docstring,
+        unused-import,
         too-few-public-methods
 
 # Enable the message, report, category or checker with the given id(s). You can
