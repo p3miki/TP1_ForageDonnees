@@ -14,3 +14,4 @@ class Main:
         print(self.hello_world)
         self.file = loader.load_file()
         parser.parse_data(self.file)
+        viewer.update_view()
