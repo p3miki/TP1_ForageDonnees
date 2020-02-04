@@ -15,5 +15,5 @@ class Main:
         """Starts the application"""
         print(self.hello_world)
         self.file = loader.load_file()
-        parser.parse_data(self.file)
-        viewer.update_view()
+        df = parser.parse_data(self.file)
+        viewer.update_view(df)
