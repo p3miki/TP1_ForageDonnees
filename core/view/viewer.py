@@ -7,17 +7,17 @@ import numpy as np
 
 def update_view(data_frame):
     """Plots the graphs with the data provided"""
-    afficher_regions(data_frame)
-    afficher_globales(data_frame)
-    afficher_consoles(data_frame)
+    afficher_regions(data_frame['region'])
+    afficher_globales(data_frame['global'])
+    afficher_consoles(data_frame['console'])
 
 
 def afficher_globales(data_frame):
     """Prints global sales
         :param data_frame:
         :type data_frame: pandas.DataFrame"""
-    dff = data_frame.groupby(['Genre'])['Global_Sales'].sum().sort_values()
-    dff.plot(kind='bar', rot=1)
+    # dff = data_frame.groupby(['Genre'])['Global_Sales'].sum().sort_values()
+    data_frame.plot(kind='bar', rot=1)
     plt.xlabel('Genres de jeu')
     plt.ylabel('Ventes (en millions)')
     plt.title('Ventes totales par Genres')
@@ -28,8 +28,7 @@ def afficher_consoles(data_frame):
     """Prints sales by console
         :param data_frame:
         :type data_frame: pandas.DataFrame"""
-    dff = data_frame.groupby(['Platform'])['Global_Sales'].sum().sort_values()
-    dff.plot(kind='bar', rot=1)
+    data_frame.plot(kind='bar', rot=1)
     plt.xlabel('Nom de Console')
     plt.ylabel('Ventes (en millions)')
     plt.title('Ventes par Console')
@@ -40,11 +39,7 @@ def afficher_regions(data_frame):
     """Prints sales graph by region
         :param data_frame:
         :type data_frame: pandas.DataFrame"""
-    years = data_frame['Year'].unique()
-    years.sort()
-    dff = data_frame.groupby(['Year']) \
-        .agg({'NA_Sales': 'sum', 'EU_Sales': 'sum', 'JP_Sales': 'sum', 'Other_Sales': 'sum'})
-    dff.plot(rot=1)
+    data_frame.plot(rot=1)
     plt.xlabel('Région De Vente')
     plt.ylabel('Ventes (en millions)')
     plt.title('Ventes par région')
