@@ -8,12 +8,12 @@ class Main:
 
     def __init__(self):
         self.hello_world = "hello_world"
-        self.file = ""
+        self.data_frame = ""
         self.start()
 
     def start(self):
         """Starts the application"""
         print(self.hello_world)
-        self.file = loader.load_file()
-        parser.parse_data(self.file)
-        viewer.update_view()
+        self.data_frame = loader.load_file()
+        new_data_frame = parser.parse_data(self.data_frame)
+        viewer.update_view(new_data_frame)
