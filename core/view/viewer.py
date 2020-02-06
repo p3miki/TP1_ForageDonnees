@@ -1,4 +1,4 @@
-import os
+import sys
 
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -32,7 +32,7 @@ def afficher_regions(data_frame):
         .agg({'NA_Sales': 'sum', 'EU_Sales': 'sum', 'JP_Sales': 'sum', 'Other_Sales': 'sum'})
     dff.plot(kind='bar', rot=1)
     plt.xlabel('Région De Vente')
-    plt.xticks(np.arange(len(years)), pd.Series(years).apply(lambda x: "" if x % 4 else x))
+    plt.xticks(np.arange(len(years)), pd.Series(years).apply(lambda x: "" if x % 5 else x))
     plt.ylabel('Ventes (en millions)')
     plt.title('Ventes par région')
     _maximize(plt.get_current_fig_manager(), plt)
@@ -40,7 +40,7 @@ def afficher_regions(data_frame):
 
 
 def _maximize(manager, plotter):
-    if os.uname().sysname == "Linux" and plotter.get_backend() == "TkAgg":
+    if sys.platform.startswith("linux") and plotter.get_backend() == "TkAgg":
         manager.resize(*manager.window.maxsize())
     elif plotter.get_backend() == "TkAgg":
         manager.window.state('zoomed')
