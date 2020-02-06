@@ -27,4 +27,3 @@ def _console_sales(data_frame):
 def _region_sales(data_frame):
     return data_frame.groupby(['Year']) \
         .agg({'NA_Sales': 'sum', 'EU_Sales': 'sum', 'JP_Sales': 'sum', 'Other_Sales': 'sum'})
-
