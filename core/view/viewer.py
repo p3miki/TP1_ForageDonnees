@@ -32,7 +32,7 @@ def afficher_regions(data_frame):
         .agg({'NA_Sales': 'sum', 'EU_Sales': 'sum', 'JP_Sales': 'sum', 'Other_Sales': 'sum'})
     dff.plot(kind='bar', rot=1)
     plt.xlabel('Région De Vente')
-    plt.xticks(np.arange(len(years)), pd.Series(years).apply(lambda x: "" if x % 5 else x))
+    plt.xticks(np.arange(len(years)), pd.Series(years).apply(lambda x: "" if x % 5 else int(x)))
     plt.ylabel('Ventes (en millions)')
     plt.title('Ventes par région')
     _maximize(plt.get_current_fig_manager(), plt)
